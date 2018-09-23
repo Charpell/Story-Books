@@ -19,6 +19,7 @@ app.use(bodyParser.json())
 const {
   truncate,
   stripTags,
+  formatDate
 } = require('./helpers/hbs');
 
 
@@ -27,6 +28,7 @@ app.engine('handlebars', exphbs({
   helpers: {
     truncate: truncate,
     stripTags: stripTags,
+    formatDate: formatDate
   },
   defaultLayout:'main'
 }));
