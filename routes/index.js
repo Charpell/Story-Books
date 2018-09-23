@@ -3,11 +3,11 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-  res.render('It works')
+  res.render('index/welcome')
 })
 
 router.get('/dashboard', (req, res) => {
-  res.render('index/dashboard');
+  res.send('dashboard');
 });
 
 module.exports = router;
