@@ -8,14 +8,28 @@ const path = require('path');
 
 const app = express();
 
+
+// Handlebars Helpers
+const {
+  truncate,
+  stripTags,
+} = require('./helpers/hbs');
+
+
 // Handlebars Middleware
 app.engine('handlebars', exphbs({
+  helpers: {
+    truncate: truncate,
+    stripTags: stripTags,
+  },
   defaultLayout:'main'
 }));
 app.set('view engine', 'handlebars');
 
 // Load User Model
 require('./models/User');
+require('./models/Story');
+
 
 // Passport Config
 require('./config/passport')(passport);
