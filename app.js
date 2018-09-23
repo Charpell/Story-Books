@@ -6,6 +6,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 
 const app = express();
@@ -13,6 +14,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+// MEthod Override Middelware
+app.use(methodOverride('_method'));
 
 
 // Handlebars Helpers
